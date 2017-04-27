@@ -16,17 +16,18 @@ export default class PopUpImage extends React.Component {
     }
 
     render() {
-        const { farm, server, id, secret  } = this.props.image;
+        const { title, farm, server, id, secret } = this.props.image;
         return (
-            <div className="pop-up-container" onClick={this.props.onHide}>
-                <img src={getImageUrl(farm, server, id, secret)} alt='' style={{marginTop:'140px'}} onClick={this.onImageClick}/>
+            <div className="image-popup-container" onClick={this.props.onHide}>
+                <img className='popup-image' src={getImageUrl(farm, server, id, secret)} alt='' style={{marginTop:'140px'}} onClick={this.onImageClick}/>
                 {
                     this.state.showMeta &&
                     <ul className="image-metadata">
-                        <li>ImageId: {id}</li>
-                        <li>FarmId: {farm}</li>
-                        <li>ServerId: {server}</li>
-                        <li>SecretId: {secret}</li>
+                        <li style={{margin:'5px 0'}}>Title: {title}</li>
+                        <li style={{margin:'5px 0'}}>ImageId: {id}</li>
+                        <li style={{margin:'5px 0'}}>FarmId: {farm}</li>
+                        <li style={{margin:'5px 0'}}>ServerId: {server}</li>
+                        <li style={{margin:'5px 0'}}>SecretId: {secret}</li>
                     </ul>
                 }
             </div>

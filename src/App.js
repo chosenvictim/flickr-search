@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import ImageList from './components/ImageList.js';
 import ImagePopUp from './components/ImagePopUp.js';
 import constants from './constants.js';
@@ -31,7 +32,7 @@ export default class App extends React.Component {
             this.handleScroll();
         }, 1000);
 
-        /* Debounced function for search based on input text */
+        /* Debounced function for search based on input text to mimimize network request on every character typed */
         this.makeDebouncedSearch = debounce(() => {
             /* Save search query */
             this.state.queries.push(this.state.searchText);
@@ -113,9 +114,9 @@ export default class App extends React.Component {
                         />
                         : <p>Try searching for some image in the search bar</p>
                     }
-                    {
-                        this.state.popUpImage && <ImagePopUp image={this.state.popUpImage} onHide={this.onPopUpHide} />
-                    }
+                    <ReactCSSTransitionGroup transitionName="popup-container" transitionEnterTimeout={400} transitionLeaveTimeout={200}>
+                        { this.state.popUpImage && <ImagePopUp image={this.state.popUpImage} onHide={this.onPopUpHide} /> }
+                    </ReactCSSTransitionGroup>
                 </div>
             </div>
         );
