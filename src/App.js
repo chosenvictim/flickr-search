@@ -59,7 +59,9 @@ export default class App extends React.Component {
     onSearchInputChange(evt) {
         const searchText = evt.currentTarget.value;
         this.setState({ searchText });
-        this.makeDebouncedSearch(searchText);
+        const trimmedText = searchText.replace(/\s+$/, '');
+        if(trimmedText.length)
+            this.makeDebouncedSearch(trimmedText);
     }
 
     handleScroll() {
