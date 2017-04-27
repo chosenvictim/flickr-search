@@ -83,15 +83,20 @@
 }
 
 .popup-image {
+    cursor: pointer;
     -webkit-box-shadow:  0px 0px 0px 9999px rgba(0, 0, 0, 0.8);
     box-shadow:  0px 0px 0px 9999px rgba(0, 0, 0, 0.8);
 }
 
 .image-item {
-    animation: fadein ease-out 1.4s;
+    cursor: pointer;
+    animation: all 0.3s ease-in-out;
+    margin: 8px;
 }
 
 .image-metadata {
+    font-size: 13px;
+    transition: all 0.3s ease-in-out;
     margin: 20px;
     color: #FFF;
 }
