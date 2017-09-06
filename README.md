@@ -1,3 +1,6 @@
+
+![giphy 1] (https://media.giphy.com/media/3ohhwfMc4MWJK01qWk/giphy.gif)
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
